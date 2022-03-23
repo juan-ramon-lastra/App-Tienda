@@ -34,12 +34,9 @@ public class Compra implements Serializable {
 	@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 	private Cliente cliente;
 	
-	@Column(name = "fecha_compra")
+	@Column(name = "fecha_compra", unique = true)
 	@Temporal(TemporalType.DATE)
 	private Date fecha = new Date();
-		
-	@Column(name = "total")
-	private Double total;
 	
 	@PrePersist
 	public void prePersist() {
@@ -72,14 +69,6 @@ public class Compra implements Serializable {
 		this.cliente = cliente;
 	}
 
-	public Double getTotal() {
-		return total;
-	}
-
-	public void setTotal(Double total) {
-		this.total = total;
-	}
-	
 	
 }
 
