@@ -1,0 +1,82 @@
+<div class="card text-white bg-dark mx-auto my-1" style="width: 50%;">
+  <div class="card-header text-center">
+    <h3 *ngIf="!producto.id">{{titulo}}</h3>
+    <h3 *ngIf="producto.id">{{titulo2}}</h3>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="create()" productoForm="ngform">
+
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <label for="nombre" class="col-form-label col-sm-12">Nombre</label>
+          <input
+          type="text"
+          name="nombre"
+          [(ngModel)]="producto.nombre"
+          class="form-control"
+          required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <label for="descripcion" class="col-form-label col-sm-12">Descripción</label>
+          <input
+          type="text"
+          name="descripcion"
+          [(ngModel)]="producto.descripcion"
+          class="form-control"
+          required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <label for="marca" class="col-form-label col-sm-12">Marca</label>
+          <input
+          type="text"
+          name="marca"
+          [(ngModel)]="producto.marca"
+          class="form-control"
+          required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <label for="precio" class="col-form-label col-sm-12">Precio</label>
+          <input
+          type="number"
+          name="precio"
+          [(ngModel)]="producto.precio"
+          class="form-control"
+          required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <label for="compra" class="col-form-label col-sm-12">Compra</label>
+          <select class="form-select" name="compra" [(ngModel)]="producto.compra">
+            <option selected>- Selecciona la compra -</option>
+            <option *ngFor="let compra of compras" value="{{compra.id}}">
+              {{compra.id}} - {{compra.fecha}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <br>
+          <button *ngIf="!producto.id" class="btn btn-primary" (click)="create()">Crear</button>
+          <button *ngIf="producto.id" class="btn btn-primary" (click)="update()">Editar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+

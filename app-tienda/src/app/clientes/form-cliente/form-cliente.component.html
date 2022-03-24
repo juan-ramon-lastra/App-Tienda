@@ -1,0 +1,57 @@
+<div class="card text-white bg-dark mx-auto my-1" style="width: 50%;">
+  <div class="card-header text-center">
+    <h3 *ngIf="!cliente.id">{{titulo}}</h3>
+    <h3 *ngIf="cliente.id">{{titulo2}}</h3>
+  </div>
+  <div class="card-body">
+
+    <form (ngSubmit)="create()" clienteForm="ngform">
+
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
+          <input
+            type="text"
+            name="nombre"
+            [(ngModel)]="cliente.nombre"
+            class="form-control"
+            required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <label for="apellidos" class="col-form-label col-sm-2">Apellidos</label>
+          <input
+          type="text"
+          name="apellidos"
+          [(ngModel)]="cliente.apellidos"
+          class="form-control"
+          required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <label for="email" class="col-form-label col-sm-2">Email</label>
+          <input
+            type="text"
+            name="email"
+            [(ngModel)]="cliente.email"
+            class="form-control"
+            required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <br>
+          <button *ngIf="!cliente.id" class="btn btn-primary" (click)="create()">Crear</button>
+          <button *ngIf="cliente.id" class="btn btn-primary" (click)="update()">Editar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
