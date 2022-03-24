@@ -94,7 +94,7 @@ public class CompraRestController {
 		
 		try {
 			compraActual.setCliente(compra.getCliente());
-			compraActual.setFecha_compra(compra.getFecha_compra());
+			compraActual.setFecha(compra.getFecha());
 			
 			servicio.save(compraActual);	
 		}

@@ -1,7 +1,6 @@
 package com.practicafinal.apirest.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,10 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrePersist;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -34,16 +30,8 @@ public class Compra implements Serializable {
 	@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 	private Cliente cliente;
 	
-	@Column(name = "fecha_compra", unique = true)
-	@Temporal(TemporalType.DATE)
-	private Date fecha = new Date();
-	
-	@PrePersist
-	public void prePersist() {
-		if (fecha.equals(null)) {
-			fecha = new Date();
-		}
-	}
+	@Column(name = "fecha", unique = true)
+	private String fecha;
 
 	public Long getId() {
 		return id;
@@ -53,12 +41,12 @@ public class Compra implements Serializable {
 		this.id = id;
 	}
 
-	public Date getFecha_compra() {
+	public String getFecha() {
 		return fecha;
 	}
 
-	public void setFecha_compra(Date fecha_compra) {
-		this.fecha = fecha_compra;
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
 	}
 
 	public Cliente getCliente() {
