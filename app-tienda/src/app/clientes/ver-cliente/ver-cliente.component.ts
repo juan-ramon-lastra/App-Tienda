@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from 'src/app/clases/cliente';
 import { Compra } from 'src/app/clases/compra';
+import swal from 'sweetalert2';
 import { ClienteService } from '../cliente.service';
 
 @Component({
@@ -21,10 +22,17 @@ export class VerClienteComponent implements OnInit {
 
   constructor(
     private clienteService:ClienteService,
+    private router:Router,
     private activedRoute:ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+
+    if (!sessionStorage.getItem('token')) {
+      this.router.navigate(['/login']);
+      swal('No Logueado!', 'Debes iniciar sesión para acceder a la página', 'error');
+      return;
+    }
 
     this.activedRoute.paramMap.subscribe(
       params => {

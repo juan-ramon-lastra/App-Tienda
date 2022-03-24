@@ -6,12 +6,14 @@ import { VerClienteComponent } from './ver-cliente/ver-cliente.component';
 import { ClienteService } from './cliente.service';
 import { AppRoutingModule } from '../routes/app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { FormClienteEditarComponent } from './form-cliente-editar/form-cliente-editar.component';
 
 @NgModule({
   declarations: [
     ClientesComponent,
     FormClienteComponent,
-    VerClienteComponent
+    VerClienteComponent,
+    FormClienteEditarComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { FormsModule } from '@angular/forms';
   exports: [
     ClientesComponent,
     FormClienteComponent,
-    VerClienteComponent
+    VerClienteComponent,
+    FormClienteEditarComponent
   ],
   providers: [
     ClienteService

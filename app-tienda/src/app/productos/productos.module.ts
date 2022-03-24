@@ -7,12 +7,14 @@ import { ProductoService } from './producto.service';
 import { CompraService } from '../compras/compra.service';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../routes/app-routing.module';
+import { FormProductoEditarComponent } from './form-producto-editar/form-producto-editar.component';
 
 @NgModule({
   declarations: [
     ProductosComponent,
     FormProductoComponent,
-    VerProductoComponent
+    VerProductoComponent,
+    FormProductoEditarComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { AppRoutingModule } from '../routes/app-routing.module';
   exports: [
     ProductosComponent,
     FormProductoComponent,
-    VerProductoComponent
+    VerProductoComponent,
+    FormProductoEditarComponent
   ],
   providers: [
     ProductoService,

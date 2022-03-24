@@ -7,14 +7,14 @@ import swal from 'sweetalert2';
 import { CompraService } from '../compra.service';
 
 @Component({
-  selector: 'app-form-compra',
-  templateUrl: './form-compra.component.html',
+  selector: 'app-form-compra-editar',
+  templateUrl: './form-compra-editar.component.html',
   styles: [
   ]
 })
-export class FormCompraComponent implements OnInit {
+export class FormCompraEditarComponent implements OnInit {
 
-  titulo:string = "Nueva Compra";
+  titulo:string = "Editar Compra";
 
   compra:Compra = new Compra();
 
@@ -52,18 +52,17 @@ export class FormCompraComponent implements OnInit {
     )
   }
 
-  create():void {
+  update():void {
     console.log(this.compra);
-    this.compraService.create(this.compra).subscribe(
+    this.compraService.update(this.compra).subscribe(
       resp => {
-        swal('Nueva compra: ', `Creada con éxito el dia ${this.compra.fecha}`, 'success');
+        swal('Compra: ', `${this.compra.id} actualizada con éxito!`, 'success');
         this.router.navigate(['/compras']);
       },
       err => {
-        console.error('Error en el backend, código: ', err.status);
+        console.error("Error en el backend, código: " + err.status);
       }
     );
   }
-
 
 }

@@ -1,1 +1,22 @@
-<p>ver-compra works!</p>
+<div class="card bg-dark text-white" style="width: 50%; margin: 10px auto">
+  <div class="card-header text-center">
+    <h3>{{titulo}}</h3>
+  </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item"><strong>ID: </strong>{{compra.id}}</li>
+      <li class="list-group-item"><strong>Fecha: </strong>{{compra.fecha}}</li>
+      <li class="list-group-item"><strong>Productos: </strong></li>
+      <div *ngIf="!hayProductos">
+        <li class="list-group-item">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No se ha comprado ningun producto.
+        </li>
+      </div>
+      <div *ngIf="productos.length>0">
+        <li *ngFor="let producto of productos" class="list-group-item">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{producto.nombre}} marca {{producto.marca}} por {{producto.precio | currency:'€'}}
+        </li>
+      </div>
+    </ul>
+  </div>
+</div>
