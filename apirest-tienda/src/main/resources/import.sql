@@ -4,11 +4,11 @@ INSERT INTO clientes (nombre, apellidos, email) VALUES ('Pepe','Alvarez Gonzalez
 INSERT INTO clientes (nombre, apellidos, email) VALUES ('Maria','Rodriguez Arias','mra@email.com');
 INSERT INTO clientes (nombre, apellidos, email) VALUES ('Angela','Perez Lopez','apl@email.com');
 
-INSERT INTO compras (cliente_id, fecha_compra) VALUES (1, '2005-11-12');
-INSERT INTO compras (cliente_id, fecha_compra) VALUES (1, '2014-12-05');
-INSERT INTO compras (cliente_id, fecha_compra) VALUES (3, '2017-07-07');
-INSERT INTO compras (cliente_id, fecha_compra) VALUES (3, '2001-05-11');
-INSERT INTO compras (cliente_id, fecha_compra) VALUES (5, '2000-08-10');
+INSERT INTO compras (cliente_id, fecha) VALUES (1, '12-11-2005');
+INSERT INTO compras (cliente_id, fecha) VALUES (1, '12-05-2014');
+INSERT INTO compras (cliente_id, fecha) VALUES (3, '07-07-2017');
+INSERT INTO compras (cliente_id, fecha) VALUES (3, '05-11-2001');
+INSERT INTO compras (cliente_id, fecha) VALUES (5, '08-10-2000');
 
 INSERT INTO productos (nombre,descripcion,marca,precio,compra_id) VALUES ('iPhone 13','Smartphone de ultima generacion','Apple',1000,1);
 INSERT INTO productos (nombre,descripcion,marca,precio,compra_id) VALUES ('Zapatillas','Zapatillas running','Asics',85.50,1);
