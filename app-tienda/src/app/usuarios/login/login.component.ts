@@ -20,7 +20,10 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    if (sessionStorage.getItem('token')) {
+      alert("ERROR! No se puede acceder al login con la sesión iniciada");
+      window.history.back();
+    }
   }
 
   login():void {

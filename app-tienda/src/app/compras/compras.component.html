@@ -3,7 +3,7 @@
   <div class="col-10 d-grid gap-2 d-md-flex justify-content-md-center">
     <h4 class="m-2">Lista de Compras</h4>
   </div>
-  <div class="col d-grid gap-2 d-md-flex justify-content-md-end">
+  <div *ngIf="authService.token" class="col d-grid gap-2 d-md-flex justify-content-md-end">
     <button class="btn btn-primary m-2"
         type="button"
         [routerLink]="['/compras/nueva']">

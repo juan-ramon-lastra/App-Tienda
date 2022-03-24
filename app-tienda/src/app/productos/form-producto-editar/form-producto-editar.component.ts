@@ -7,14 +7,14 @@ import swal from 'sweetalert2';
 import { ProductoService } from '../producto.service';
 
 @Component({
-  selector: 'app-form-producto',
-  templateUrl: './form-producto.component.html',
+  selector: 'app-form-producto-editar',
+  templateUrl: './form-producto-editar.component.html',
   styles: [
   ]
 })
-export class FormProductoComponent implements OnInit {
+export class FormProductoEditarComponent implements OnInit {
 
-  titulo:string = "Nuevo Producto";
+  titulo:string = "Actualizar Producto";
 
   producto:Producto = new Producto();
 
@@ -28,7 +28,6 @@ export class FormProductoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
     if (!sessionStorage.getItem('token')) {
       this.router.navigate(['/login']);
       swal('No Logueado!', 'Debes iniciar sesión para acceder a la página', 'error');
@@ -52,15 +51,15 @@ export class FormProductoComponent implements OnInit {
     )
   }
 
-  create():void {
+  update():void {
     console.log(this.producto);
-    this.productoService.create(this.producto).subscribe(
+    this.productoService.update(this.producto).subscribe(
       resp => {
-        swal('Nuevo producto: ', `${this.producto.nombre} guardado con éxito`, 'success');
+        swal('Producto: ', `${this.producto.nombre} actualizado con éxito!`, 'success');
         this.router.navigate(['/productos']);
       },
       err => {
-        console.error('Error en el backend, código: ', err.status);
+        console.error("Error en el backend, código: " + err.status);
       }
     );
   }

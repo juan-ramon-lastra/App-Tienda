@@ -7,12 +7,14 @@ import { CompraService } from './compra.service';
 import { AppRoutingModule } from '../routes/app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ClienteService } from '../clientes/cliente.service';
+import { FormCompraEditarComponent } from './form-compra-editar/form-compra-editar.component';
 
 @NgModule({
   declarations: [
     VerCompraComponent,
     FormCompraComponent,
-    ComprasComponent
+    ComprasComponent,
+    FormCompraEditarComponent
   ],
   imports: [
     CommonModule,
@@ -23,6 +25,7 @@ import { ClienteService } from '../clientes/cliente.service';
     VerCompraComponent,
     FormCompraComponent,
     ComprasComponent,
+    FormCompraEditarComponent,
     AppRoutingModule,
     FormsModule
   ],

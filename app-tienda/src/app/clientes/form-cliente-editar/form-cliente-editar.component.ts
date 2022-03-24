@@ -5,14 +5,14 @@ import swal from 'sweetalert2';
 import { ClienteService } from '../cliente.service';
 
 @Component({
-  selector: 'app-form-cliente',
-  templateUrl: './form-cliente.component.html',
+  selector: 'app-form-cliente-editar',
+  templateUrl: './form-cliente-editar.component.html',
   styles: [
   ]
 })
-export class FormClienteComponent implements OnInit {
+export class FormClienteEditarComponent implements OnInit {
 
-  titulo:string = "Nuevo Cliente";
+  titulo:string = "Editar Cliente";
 
   cliente:Cliente = new Cliente();
 
@@ -43,20 +43,17 @@ export class FormClienteComponent implements OnInit {
 
   }
 
-  create():void {
-    console.log("formulario enviado");
+  update():void {
     console.log(this.cliente);
-    this.clienteService.create(this.cliente).subscribe(
+    this.clienteService.update(this.cliente).subscribe(
       resp => {
-        swal('Nuevo cliente', `${this.cliente.nombre} creado con éxito`, 'success');
+        swal('Actualizado', `${this.cliente.nombre} actualizado con éxito!`, 'success');
         this.router.navigate(['/clientes']);
       },
       err => {
-        console.error('Error en el backend, código: ', err.status);
+        console.error("rror en el backend, código: " + err.status);
       }
     );
   }
-
-
 
 }
